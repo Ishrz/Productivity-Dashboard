@@ -1,10 +1,10 @@
 let allElems= document.querySelectorAll('.elem')
-let allFullElem=document.querySelectorAll('.fullElem')
+let allFullElemPage=document.querySelectorAll('.fullElem')
 let allFullElemBackBtn=document.querySelectorAll('.fullElem .back')
 
 allElems.forEach(elem =>{
     elem.addEventListener('click', (evt)=>{
-        allFullElem[elem.id].style.display='block'
+        allFullElemPage[elem.id].style.display='block'
     })
 
     
@@ -13,10 +13,7 @@ allElems.forEach(elem =>{
 allFullElemBackBtn.forEach(elem=>{
     elem.addEventListener("click",()=>{
         // console.log(elem.id)
-    allFullElem[elem.id].style.display='none'
+    allFullElemPage[elem.id].style.display='none'
     })
 })
 
-// allFullElemBackBtn.addEventListener('click',()=>{
-//     console.log(back)
-// })
