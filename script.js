@@ -17,4 +17,39 @@ function openFeature() {
   });
 }
 
-openFeature()
+openFeature();
+
+let form = document.querySelector(".addTask form");
+let input = document.querySelector(".addTask form #task-input");
+let textArea = document.querySelector(".addTask form textarea");
+let taskCheckBox = document.querySelector(".addTask form #check");
+
+let currentTask = [];
+form.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+
+  currentTask.push({
+    task: input.value,
+    detail: textArea.value,
+    check: taskCheckBox.checked,
+  });
+  renderTask();
+  input.value = "";
+  textArea.value = "";
+  taskCheckBox.checked = false;
+});
+
+function renderTask() {
+  let allTask = document.querySelector(".allTask");
+  let data = "";
+  currentTask.forEach((elem) => {
+    data += `<div class="task">
+                    <h5>${elem.task} <span class=${elem.check}>imp</span></h5>
+                    <button>mark compeleted</button>
+                </div>`;
+  });
+
+  allTask.innerHTML = data;
+}
+
+renderTask();
