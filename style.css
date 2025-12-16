@@ -1,11 +1,13 @@
 :root{
     --pri:#ddf7f7;
     --sec:#CBF1F5;
-    --tri1:#A6E3E9;
-    --tri2:#71C9CE;
+    --tri1:#a6e3e9cc;
+    --tri2:#71c9ceef;
 
     /* color */
-    --color-pri:#5e87b6de;
+    --color-pri:#102C57;
+    --color-sec:#5e87b6de;
+
 }
 
 @font-face {
@@ -32,8 +34,8 @@
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
-    color: var(--pri);
-    background-color: var(--tri1);
+    color: black;
+    /* background-color: var(--tri1); */
 }
 
 html,body{
@@ -46,6 +48,7 @@ main{
     width: 100%;
     height: 100%;
     background-color: var(--tri1);
+    overflow: auto;
 }
 
 
@@ -139,17 +142,119 @@ section.allElems{
 .todoList-fullPage .todo-container{
     height: 70%;
     width: 100%;
-    background-color: gray;
+    margin-top: 30px;
+    /* background-color: gray; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .todoList-fullPage .todo-container .addTask{
-    width: 100%;
+    width: 33%;
     height: 100%;
-    background-color: red;
+    background-color: var(--tri1);
+    border-radius: 20px;
 }
 
 .todoList-fullPage .todo-container .allTask{
-    width: 100%;
+    width: 65%;
     height: 100%;
-    background-color: blue;
+    background-color: var(--tri1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: auto;
+    padding: 30px;
+    
 }
+
+.todoList-fullPage .todo-container .addTask form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+.todo-container .addTask form input{
+    width: 100%;
+    padding: 14px 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font: 20px;
+    margin-bottom: 20px;
+    background-color: var(--pri);
+}
+
+.todo-container .addTask form textarea{
+      width: 100%;
+    padding: 14px 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font: 20px;
+    margin-bottom: 20px;
+        background-color: var(--pri);
+
+}
+
+.todo-container .addTask form button{
+      width: 100%;
+    padding: 14px 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    background: linear-gradient(to right,rgb(43, 116, 145),var(--sec));
+    transition: all linear 0.5s;
+
+}
+
+.todo-container .addTask form button:active{
+    scale: 0.85;
+}
+
+
+.todoList-fullPage .todo-container .allTask .task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    width: 100%;
+    background-color: var(--pri);
+    padding: 17px 20px;
+    border-radius: 8px;
+        /* background: linear-gradient(to right,rgb(43, 116, 145),var(--pri)); */
+
+    margin-bottom: 10px;
+}
+
+.task h5{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-pri);
+}
+
+.task button{
+    width: fit-content;
+    padding: 14px 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    background: linear-gradient(to right,rgb(12, 238, 61),var(--sec));
+    transition: all linear 0.5s;
+    color: #102C57;
+}
+
+.task button:active{
+    scale: 0.85;
+}
+
+
+
