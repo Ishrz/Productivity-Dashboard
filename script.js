@@ -25,6 +25,18 @@ let textArea = document.querySelector(".addTask form textarea");
 let taskCheckBox = document.querySelector(".addTask form #check");
 
 let currentTask = [];
+let savedData=localStorage.getItem('currentTask')
+
+if(savedData){
+  currentTask=JSON.parse(savedData)
+}
+
+
+
+// localStorage.clear()
+
+
+
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
@@ -51,6 +63,8 @@ function renderTask() {
                 </div>`;
   });
 
+  
+  localStorage.setItem('currentTask',JSON.stringify(currentTask))
   allTask.innerHTML = data;
 }
 
