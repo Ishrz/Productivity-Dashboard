@@ -134,10 +134,10 @@ section.allElems{
 }
 
 
-.todoList-fullPage{
-    /* background-color: gray; */
+/* .todoList-fullPage{
+    
     display: block;
-}
+} */
 
 .todoList-fullPage .todo-container{
     height: 70%;
