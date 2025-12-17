@@ -28,11 +28,13 @@ let currentTask = [];
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
+  if(input.value && textArea.value){
   currentTask.push({
     task: input.value,
     detail: textArea.value,
     check: taskCheckBox.checked,
   });
+}
   renderTask();
   input.value = "";
   textArea.value = "";
