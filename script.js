@@ -17,7 +17,7 @@ function openFeature() {
   });
 }
 
-openFeature();
+// openFeature();
 
 let form = document.querySelector(".addTask form");
 let input = document.querySelector(".addTask form #task-input");
@@ -79,4 +79,39 @@ function todoList() {
   renderTask();
 }
 
-todoList()
+// todoList()
+
+//Day Planner Section Logic
+
+let hours=Array.from({length:18},(_,index)=> `${6+index}:00-${7+index}:00`)
+
+let dayPlanner=document.querySelector('.dailyPlan-fullPage .day-planner')
+
+let wholeDaySum = ''
+hours.forEach((elem,index)=>{
+  wholeDaySum += `<div class="day-planner-time">
+                <p>${elem}</p>
+                <input id=${index} type="text" placeholder="...">
+            </div>`
+})
+
+dayPlanner.innerHTML=wholeDaySum
+
+let dayPlanData= JSON.parse(localStorage.getItem('dayPlanData')) || {};
+
+// console.log(dayPlanData)
+
+let dayPlannerInput=document.querySelectorAll('.day-planner input')
+
+dayPlannerInput.forEach((elem,index)=>{
+  
+  elem.addEventListener('input',()=>{
+    console.log(elem.value)
+   
+    dayPlanData[index]=elem.value
+    console.log(dayPlanData)
+    localStorage.setItem('dayPlanData',JSON.stringify(dayPlanData))
+     
+  })
+})
+

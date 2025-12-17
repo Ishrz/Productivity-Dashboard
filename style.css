@@ -296,3 +296,56 @@ section.allElems{
 }
 
 
+.dailyPlan-fullPage{
+    display: block;
+}
+
+.dailyPlan-fullPage h2{
+    font-size: 40px;
+}
+
+.dailyPlan-fullPage .day-planner{
+    background-color: var(--tri1);
+    height: 85%;
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    overflow: auto;
+    
+}
+
+.dailyPlan-fullPage .day-planner .day-planner-time{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 49%;
+    margin-bottom: 15px;
+}
+
+.day-planner .day-planner-time input{
+    padding: 20px 40px ;
+    padding-top: 30px;
+    width: 100%;
+    background-color: var(--pri);
+    border-radius: 8px;
+    font-size: 26px;
+    border: none;
+    outline: none;
+    font-weight: 300;
+}
+
+.day-planner .day-planner-time p{
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px;
+}
