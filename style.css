@@ -349,3 +349,79 @@ section.allElems{
     font-weight: 700;
     padding: 5px;
 }
+
+.motivation-fullPage{
+    display: block;
+    position: relative;
+}
+
+.motivation-fullPage .motivation-container{
+    width: 500px;
+    height: 400px;
+    background-color: var(--color-pri);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+
+}
+
+.motivation-fullPage .motivation-container::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-sec);
+    position: absolute;
+    scale: 1.1;
+    border-radius: 10px;
+    z-index: 8;
+    filter: blur(10px);
+}
+
+ .motivation-container .motivation-wrapper{
+    z-index: 10;
+     width: 100%;
+    height: 100%;
+    background-color: var(--tri2);
+    position: absolute;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+
+.motivation-container .motivation-wrapper .motivation1{
+    background-color: #1f60c2;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.motivation-wrapper .motivation1 h2{
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.motivation-wrapper .motivation2{
+    padding: 20px;
+
+}
+
+.motivation-wrapper .motivation2 h2{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+} 
+
+.motivation-wrapper .motivation3{
+    background-color: #1f60c2;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.motivation-wrapper .motivation3 h2{
+    font-size: 25px;
+    font-weight: 800;
+    text-align: end;
+    padding: 2px 15px;
+}
