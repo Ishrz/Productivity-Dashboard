@@ -82,6 +82,9 @@ function todoList() {
 // todoList()
 
 //Day Planner Section Logic
+let dayPlanData= JSON.parse(localStorage.getItem('dayPlanData')) || {};
+
+let dayPlannerInput=document.querySelectorAll('.day-planner input')
 
 let hours=Array.from({length:18},(_,index)=> `${6+index}:00-${7+index}:00`)
 
@@ -89,19 +92,15 @@ let dayPlanner=document.querySelector('.dailyPlan-fullPage .day-planner')
 
 let wholeDaySum = ''
 hours.forEach((elem,index)=>{
+  let savedInputsData=dayPlanData[index] || ''
   wholeDaySum += `<div class="day-planner-time">
                 <p>${elem}</p>
-                <input id=${index} type="text" placeholder="...">
+                <input id=${index} type="text" placeholder="..." value=${dayPlanData[index] || ''}>
             </div>`
 })
 
 dayPlanner.innerHTML=wholeDaySum
 
-let dayPlanData= JSON.parse(localStorage.getItem('dayPlanData')) || {};
-
-// console.log(dayPlanData)
-
-let dayPlannerInput=document.querySelectorAll('.day-planner input')
 
 dayPlannerInput.forEach((elem,index)=>{
   
