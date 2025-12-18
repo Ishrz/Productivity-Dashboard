@@ -27,7 +27,7 @@ let textArea = document.querySelector(".addTask form textarea");
 let taskCheckBox = document.querySelector(".addTask form #check");
 
 
-//todo called called
+//todoList fnc logic
 function todoList() {
   let currentTask = [];
   let savedData = localStorage.getItem("currentTask");
@@ -80,7 +80,7 @@ function todoList() {
 
   renderTask();
 }
-
+//todo fnc called
 todoList()
 
 //Day Planner Section Logic
@@ -118,6 +118,26 @@ dayPlannerInput.forEach((elem,index)=>{
   })
 })
 }
-
 //daily pnannner called
 dailyPlanner()
+
+
+//motivation qoute section logic
+
+
+function motivationalQoute(){
+  let motivationQoute=document.querySelector('.motivation2 h1');
+let motivationQouteAuthor=document.querySelector('.motivation3 h2');
+
+async function fetchQoute(){
+  let rawResponse= await fetch('https://api.quotable.io/random')
+  let response=await rawResponse.json();
+
+motivationQoute.innerText=response.content
+motivationQouteAuthor.innerText=response.author
+}
+
+fetchQoute()
+}
+//motivation qoute fnc called
+motivationalQoute()
