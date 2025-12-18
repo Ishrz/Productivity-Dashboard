@@ -141,3 +141,69 @@ fetchQoute()
 }
 //motivation qoute fnc called
 motivationalQoute()
+
+
+//Pomodoro section logic
+
+let pomoTime=document.querySelector('.pomodoro-fullPage .pomodoro-containt h1')
+
+let startTime=document.querySelector('.pomodoro-containt .pomoBtns .start')
+let pauseTime=document.querySelector('.pomodoro-containt .pomoBtns .pause')
+let resetTime=document.querySelector('.pomodoro-containt .pomoBtns .reset')
+
+
+
+let btns=document.querySelectorAll('.pomodoro-containt .timer')
+
+let timerId=null;
+let isRunning=false;
+
+btns.forEach((elem,index)=>{
+  elem.addEventListener('click',()=>{
+    // console.log()
+    //start button
+    if(index === 0 ){
+      startTimer()
+      console.log(isRunning)
+      elem.setAttribute('disabled','')
+    } 
+
+    //pause button
+    if(index=== 1) {
+      clearInterval(timerId)
+      startTime.removeAttribute('disabled')
+      isRunning=false
+    }
+    //reset button
+    if(index === 2 ){
+      clearInterval(timerId);
+      startTime.removeAttribute('disabled')
+      pomoTime.innerText=`25:00`
+    }
+  })
+})
+
+//timer setting
+let totalSecond=25*60;
+function setTime(){
+let minutes=Math.floor(totalSecond/60);
+let seconds=totalSecond%60;
+
+pomoTime.innerText=`${(minutes.toString()).padStart(2,0)}:${(seconds.toString()).padStart(2,0)}`
+}
+
+//timer starter
+function startTimer(){
+  isRunning=true;
+  timerId=setInterval(()=>{
+  totalSecond--
+  if(totalSecond==0){
+    clearInterval(timerId)
+    pomoTime.style.color='red'
+
+  }
+
+  setTime()
+},1000)
+}
+
