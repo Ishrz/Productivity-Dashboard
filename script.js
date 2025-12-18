@@ -157,12 +157,14 @@ let btns=document.querySelectorAll('.pomodoro-containt .timer')
 
 let timerId=null;
 let isRunning=false;
+let isWorkSession=false;
 
 btns.forEach((elem,index)=>{
   elem.addEventListener('click',()=>{
     // console.log()
     //start button
     if(index === 0 ){
+      isWorkSession=true;
       startTimer()
       console.log(isRunning)
       elem.setAttribute('disabled','')
@@ -178,6 +180,9 @@ btns.forEach((elem,index)=>{
     if(index === 2 ){
       clearInterval(timerId);
       startTime.removeAttribute('disabled')
+      pomoTime.style.color='black'
+      isRunning=false
+      totalSecond=25*60;
       pomoTime.innerText=`25:00`
     }
   })
@@ -194,16 +199,32 @@ pomoTime.innerText=`${(minutes.toString()).padStart(2,0)}:${(seconds.toString())
 
 //timer starter
 function startTimer(){
+  clearInterval(timerId)
   isRunning=true;
   timerId=setInterval(()=>{
   totalSecond--
-  if(totalSecond==0){
+  if(totalSecond==0 && isWorkSession){
     clearInterval(timerId)
+    console.log(isWorkSession)
     pomoTime.style.color='red'
-
+    startTime.setAttribute('disabled','')
+    pauseTime.setAttribute('disabled','')
+    totalSecond=5*60;
+    pomoTime.innerText='05:00'
+    isWorkSession=false
+    startTimer()
+  }
+  if(totalSecond==0 && !isWorkSession){
+    clearInterval(timerId)
+    pomoTime.style.color='black'
+    startTime.removeAttribute('disabled')
+    pauseTime.removeAttribute('disabled')
+    totalSecond=25*60;
+    pomoTime.innerText='25:00'
+    isWorkSession=true;
   }
 
   setTime()
-},1000)
+},10)
 }
 
