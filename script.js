@@ -1,3 +1,5 @@
+
+//open feature fnc
 function openFeature() {
   let allElems = document.querySelectorAll(".elem");
   let allFullElemPage = document.querySelectorAll(".fullElem");
@@ -16,8 +18,8 @@ function openFeature() {
     });
   });
 }
-
-// openFeature();
+//open feature fnc called
+openFeature();
 
 let form = document.querySelector(".addTask form");
 let input = document.querySelector(".addTask form #task-input");
@@ -25,7 +27,7 @@ let textArea = document.querySelector(".addTask form textarea");
 let taskCheckBox = document.querySelector(".addTask form #check");
 
 
-
+//todo called called
 function todoList() {
   let currentTask = [];
   let savedData = localStorage.getItem("currentTask");
@@ -79,12 +81,13 @@ function todoList() {
   renderTask();
 }
 
-// todoList()
+todoList()
 
 //Day Planner Section Logic
-let dayPlanData= JSON.parse(localStorage.getItem('dayPlanData')) || {};
+function dailyPlanner(){
+  let dayPlanData= JSON.parse(localStorage.getItem('dayPlanData')) || {};
 
-let dayPlannerInput=document.querySelectorAll('.day-planner input')
+
 
 let hours=Array.from({length:18},(_,index)=> `${6+index}:00-${7+index}:00`)
 
@@ -101,6 +104,7 @@ hours.forEach((elem,index)=>{
 
 dayPlanner.innerHTML=wholeDaySum
 
+let dayPlannerInput=document.querySelectorAll('.day-planner input')
 
 dayPlannerInput.forEach((elem,index)=>{
   
@@ -108,9 +112,12 @@ dayPlannerInput.forEach((elem,index)=>{
     console.log(elem.value)
    
     dayPlanData[index]=elem.value
-    console.log(dayPlanData)
+
     localStorage.setItem('dayPlanData',JSON.stringify(dayPlanData))
      
   })
 })
+}
 
+//daily pnannner called
+dailyPlanner()
