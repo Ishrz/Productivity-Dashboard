@@ -435,3 +435,52 @@ section.allElems{
     text-align: end;
     padding: 2px 15px;
 }
+
+.pomodoro-fullPage{
+    display: block;
+}
+
+.pomodoro-fullPage .pomodoro-containt{
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: var(--tri1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ .pomodoro-containt h1{
+    font-size: 110px;
+    font-weight: 800;
+    margin: 10px;
+}
+
+.pomodoro-containt .pomoBtns{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+ .pomodoro-containt .timer{
+    padding: 15px 20px;
+   box-shadow: 10px 10px 15px var(--color-pri);
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    background: linear-gradient(to right,rgb(43, 116, 145),var(--sec));
+    transition: all linear 0.3s;
+}
+
+ .pomodoro-containt .timer:active{
+    scale: 0.82;
+}
