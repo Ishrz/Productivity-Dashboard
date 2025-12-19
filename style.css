@@ -459,6 +459,18 @@ section.allElems{
     margin: 10px;
 }
 
+.pomodoro-containt h3{
+    background: linear-gradient(to right ,rgb(66, 255, 41),var(--pri));
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.breakTime{
+    background: linear-gradient(to right ,rgb(255, 48, 41),var(--pri));
+}
+
+
 .pomodoro-containt .pomoBtns{
     margin-top: 10px;
     width: 100%;

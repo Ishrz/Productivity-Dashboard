@@ -158,7 +158,8 @@ let btns=document.querySelectorAll('.pomodoro-containt .timer')
 let timerId=null;
 let isRunning=false;
 let isWorkSession=false;
-
+let workSession=document.querySelector('.pomodoro-containt h3')
+console.log(workSession)
 btns.forEach((elem,index)=>{
   elem.addEventListener('click',()=>{
     // console.log()
@@ -191,6 +192,7 @@ btns.forEach((elem,index)=>{
 //timer setting
 let totalSecond=25*60;
 function setTime(){
+ 
 let minutes=Math.floor(totalSecond/60);
 let seconds=totalSecond%60;
 
@@ -206,10 +208,13 @@ function startTimer(){
   if(totalSecond==0 && isWorkSession){
     clearInterval(timerId)
     console.log(isWorkSession)
+    workSession.innerText='Break time'
+    workSession.style.backgroundImage = `linear-gradient(to right, rgb(255, 48, 41), var(--pri))`;
+
     pomoTime.style.color='red'
     startTime.setAttribute('disabled','')
     pauseTime.setAttribute('disabled','')
-    totalSecond=5*60;
+    totalSecond=10*60;
     pomoTime.innerText='05:00'
     isWorkSession=false
     startTimer()
@@ -217,6 +222,8 @@ function startTimer(){
   if(totalSecond==0 && !isWorkSession){
     clearInterval(timerId)
     pomoTime.style.color='black'
+    workSession.style.backgroundImage = `linear-gradient(to right ,rgb(66, 255, 41), var(--pri))`;
+    workSession.innerText='work Session'
     startTime.removeAttribute('disabled')
     pauseTime.removeAttribute('disabled')
     totalSecond=25*60;
@@ -225,6 +232,6 @@ function startTimer(){
   }
 
   setTime()
-},10)
+},5)
 }
 
